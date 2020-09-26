@@ -37,3 +37,7 @@ This repository contains my solution for the coursera course Algorithm I & II
   - Deque (linked-list based): to avoid handling the special case for adding into an empty deque, I add a guard node for every deque, this simplifies the code gracefully.
   - RandomizedDeque (resizing array based) : to achieve const amortized time for deque, you can first randomly pick one item then switch it with the last element in the array. Don't confuse between size (the number of elements in the deque) and capacity (the number of elements the deque **can** contains).
 
+- Project 3 : collinear points
+
+  - to avoid duplicated segment, I choose the strategy below : After sorting the points in terms of one specific point x, the first element must be the x itself. To add a new segment into your solution, you only need to ensure that x is the smallest point.
+
