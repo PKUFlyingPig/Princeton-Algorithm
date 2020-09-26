@@ -26,9 +26,6 @@ public class BruteCollinearPoints {
             }
         }
         int len = points.length;
-        if (len < 4) {
-            throw new IllegalArgumentException("at least 4 points");
-        }
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
                 if (points[i].compareTo(points[j]) == 0) {
@@ -36,18 +33,22 @@ public class BruteCollinearPoints {
                 }
             }
         }
+        if (len < 4) {
+            return;
+        }
 
-        Arrays.sort(points);
+        Point[] tmp = Arrays.copyOf(points, len);
+        Arrays.sort(tmp);
         //brute check
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
                 for (int k = j + 1; k < len; k++) {
                     for (int h = k + 1; h < len; h++) {
-                        double s1 = points[i].slopeTo(points[j]);
-                        double s2 = points[i].slopeTo(points[k]);
-                        double s3 = points[i].slopeTo(points[h]);
+                        double s1 = tmp[i].slopeTo(tmp[j]);
+                        double s2 = tmp[i].slopeTo(tmp[k]);
+                        double s3 = tmp[i].slopeTo(tmp[h]);
                         if (s1 == s2 && s1 == s3) {
-                            collinearLineSegments.add(new LineSegment(points[i], points[h]));
+                            collinearLineSegments.add(new LineSegment(tmp[i], tmp[h]));
                         }
                     }
                 }

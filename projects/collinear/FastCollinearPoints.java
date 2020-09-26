@@ -15,6 +15,54 @@ import java.util.List;
 public class FastCollinearPoints {
     private List<LineSegment> colliLineSegments= new ArrayList<>();
     // finds all line segments containing 4 or more points
+    public FastCollinearPoints(Point[] points) {
+        // corner case checking
+        if (points == null) {
+            throw new IllegalArgumentException("argument to constructor is null");
+        }
+        for (Point p : points) {
+            if (p == null) {
+                throw new IllegalArgumentException("one point is null");
+            }
+        }
+        int len = points.length;
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (points[i].compareTo(points[j]) == 0) {
+                    throw new IllegalArgumentException("repeated point");
+                }
+            }
+        }
+        if (len < 4) {
+            return;
+        }
+
+        points = Arrays.copyOf(points, len);
+        Arrays.sort(points);
+
+        Point[] tmp = Arrays.copyOf(points, len);
+        for (Point p : points) {
+            Arrays.sort(tmp, p.slopeOrder());
+            // for (Point x : tmp) {
+            //     System.out.print(x + " ");
+            // }
+            // System.out.println();
+            for (int i = 1; i < len;) {
+                int j = i + 1;
+                while (j < len && p.slopeTo(tmp[i]) == p.slopeTo(tmp[j])) {
+                    j++;
+                }
+                if (j - i >= 3 && tmp[0].compareTo(min(tmp, i, j - 1)) < 0) {
+                    colliLineSegments.add(new LineSegment(tmp[0], max(tmp, i, j - 1)));
+                }
+                if (j == len) {
+                    break;
+                }
+                i = j;
+            }
+        }
+    }
+
     private Point min(Point[] a, int lo, int hi) {
         if (lo > hi || a == null) {
             throw new IllegalArgumentException();
@@ -40,52 +88,7 @@ public class FastCollinearPoints {
         }
         return ret;
     }
-    public FastCollinearPoints(Point[] points) {
-        // corner case checking
-        if (points == null) {
-            throw new IllegalArgumentException("argument to constructor is null");
-        }
-        for (Point p : points) {
-            if (p == null) {
-                throw new IllegalArgumentException("one point is null");
-            }
-        }
-        int len = points.length;
-        if (len < 4) {
-            throw new IllegalArgumentException("at least 4 points");
-        }
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
-                if (points[i].compareTo(points[j]) == 0) {
-                    throw new IllegalArgumentException("repeated point");
-                }
-            }
-        }
 
-        Arrays.sort(points);
-
-        Point[] tmp = Arrays.copyOf(points, len);
-        for (Point p : points) {
-            Arrays.sort(tmp, p.slopeOrder());
-            // for (Point x : tmp) {
-            //     System.out.print(x + " ");
-            // }
-            // System.out.println();
-            for (int i = 1; i < len;) {
-                int j = i + 1;
-                while (j < len && p.slopeTo(tmp[i]) == p.slopeTo(tmp[j])) {
-                    j++;
-                }
-                if (j - i >= 3 && tmp[0].compareTo(min(tmp, i, j - 1)) < 0) {
-                    colliLineSegments.add(new LineSegment(tmp[0], max(tmp, i, j - 1)));
-                }
-                if (j == len) {
-                    break;
-                }
-                i = j;
-            }
-        }
-    }
     // the number of line segments
     public int numberOfSegments() {
         return colliLineSegments.size();
