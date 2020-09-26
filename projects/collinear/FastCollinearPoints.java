@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FastCollinearPoints {
-    List<LineSegment> colliLineSegments= new ArrayList<>();
+    private List<LineSegment> colliLineSegments= new ArrayList<>();
     // finds all line segments containing 4 or more points
     private Point min(Point[] a, int lo, int hi) {
         if (lo > hi || a == null) {

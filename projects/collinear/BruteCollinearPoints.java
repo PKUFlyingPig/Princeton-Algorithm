@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BruteCollinearPoints {
-    List<LineSegment> collinearLineSegments = new ArrayList<>();
+    private List<LineSegment> collinearLineSegments = new ArrayList<>();
     // finds all line segments containing 4 points
     public BruteCollinearPoints(Point[] points) {
         // corner case checking
