@@ -4,11 +4,19 @@ This repository contains my solution for the coursera course Algorithm I & II
 
 ## Useful Link
 
-[Coursera course website](https://www.coursera.org/learn/algorithms-part1/home/welcome)
+[Coursera course website : part1](https://www.coursera.org/learn/algorithms-part1/home/welcome)
+
+[Coursera course website : part2](https://www.coursera.org/learn/algorithms-part2/home/welcome)
 
 [Project 1: percolation](https://coursera.cs.princeton.edu/algs4/assignments/percolation/specification.php)
 
 [Project 2 : Queues](https://coursera.cs.princeton.edu/algs4/assignments/queues/specification.php) 
+
+[Project 3 : colinear](https://coursera.cs.princeton.edu/algs4/assignments/collinear/specification.php)
+
+[Project 4 : 8puzzle](https://coursera.cs.princeton.edu/algs4/assignments/8puzzle/specification.php)
+
+[Project 5 : kd-trees](https://coursera.cs.princeton.edu/algs4/assignments/kdtree/specification.php)
 
 ## Tips for projects
 
@@ -41,3 +49,5 @@ This repository contains my solution for the coursera course Algorithm I & II
 
   - to avoid duplicated segment, I choose the strategy below : After sorting the points in terms of one specific point x, the first element must be the x itself. To add a new segment into your solution, you only need to ensure that x is the smallest point.
 
+- Project 5 : kd trees
+  - Nearest() : if the two subtrees both need to be checked, first check the subtree which the query point lies in, and remember that after you check one subtree, you may now prune the other subtree.
