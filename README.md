@@ -50,4 +50,9 @@ This repository contains my solution for the coursera course Algorithm I & II
   - to avoid duplicated segment, I choose the strategy below : After sorting the points in terms of one specific point x, the first element must be the x itself. To add a new segment into your solution, you only need to ensure that x is the smallest point.
 
 - Project 5 : kd trees
+  
   - Nearest() : if the two subtrees both need to be checked, first check the subtree which the query point lies in, and remember that after you check one subtree, you may now prune the other subtree.
+
+### Wanna Learn More ?
+
+Check out [this repository](https://github.com/PKUFlyingPig/Self-learning-Computer-Science) which contains all my self-learning materials : )
