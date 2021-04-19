@@ -18,6 +18,16 @@ This repository contains my solution for the coursera course Algorithm I & II
 
 [Project 5 : kd-trees](https://coursera.cs.princeton.edu/algs4/assignments/kdtree/specification.php)
 
+[Project 6 : WordNet](https://coursera.cs.princeton.edu/algs4/assignments/wordnet/specification.php)
+
+[Project 7 : Seam-Carving](https://coursera.cs.princeton.edu/algs4/assignments/seam/specification.php)
+
+[Project 8 : Baseball Elimenation](https://coursera.cs.princeton.edu/algs4/assignments/baseball/specification.php)
+
+[Project 9 : Boggle](https://coursera.cs.princeton.edu/algs4/assignments/boggle/specification.php)
+
+[Project 10 : Burrows-Wheeler](https://coursera.cs.princeton.edu/algs4/assignments/burrows/specification.php)
+
 ## Tips for projects
 
 - project 1 : percolation
